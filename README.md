@@ -32,11 +32,11 @@ Here, **H1** and **H2** are fixed values we can come up with as long as it look 
 
 Since in the image we mark a right triangle we know we can apply the formula to find the angle:
 
-$`tan(x) = H1 \over (width \over 2)`$
+$$ tan(x) = {H1 \over ({width \over 2})} $$
 
 Which results in
 
-$$ x = arctan({(H1) \over ((width) \over (2))}) $$
+$$ x = arctan({H1 \over ({width \over 2})}) $$
 
 However, this will give us the angle from the bottom of the y-axis. To fix this we subtract 90deg.
 
@@ -53,11 +53,11 @@ Now with this we can get **H2** that will be the horizontal offset to position t
 
 For that we use the formula:
 
-$$ sin(x) = {(H3) \over (R)} $$
+$$ sin(x) = {H3 \over R} $$
 
 Which translates to
 
-$$ H3 = {(sin(x)) \over (R)} $$
+$$ H3 = {sin(x) \over R} $$
 
 and that's it, the animations just need to interpolate between the initial and final position
 
