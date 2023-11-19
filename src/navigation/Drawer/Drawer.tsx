@@ -35,7 +35,7 @@ const Navigator: (typeof Drawer)['Navigator'] = ({children, ...props}) => {
           drawerActiveTintColor: colors.activeText,
           drawerInactiveTintColor: colors.inactiveText,
           overlayColor: 'transparent',
-          drawerType: 'slide',
+          drawerType: 'back',
           headerTransparent: true,
           header: () => null,
           drawerLabelStyle: styles.drawerLabelStyle,
@@ -56,10 +56,9 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: colors.drawerBackground,
   },
-  drawerLabelStyle: {fontSize: 16},
+  drawerLabelStyle: {fontSize: 16, marginHorizontal: 12},
   drawerItemStyle: {
     borderRadius: 12,
-    paddingHorizontal: 12,
     marginRight: 0,
   },
   drawerStyle: {
