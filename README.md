@@ -1,3 +1,76 @@
+# Result
+
+![Intersections](./readme/demo.gif)
+
+# Explanation
+
+*Screen: Whenever I say this, I refer the main screen with header and content included (excluding the drawer)*
+
+First, we need to notice that it's not actually behind the screen, it's just side by side. The rotated screen and the lack of margin on the right side of the drawer it's what makes it look like the screen is above it.
+
+Before applying any animations we just need to focus on the final goal. The animations will be an extra once we know what moved.
+
+There are three things here:
+
+- Rotating the screen
+- Reducing the screen's top margin
+- Increasing the drawer's top margin
+
+**Reducing the screen's top margin** and **Increasing the drawer's top margin** are simple tasks and we only need to pay attention that the screen stay inside the safe areas at all time.
+
+### Rotating the screen
+
+Since, the responsiveness is not totally clear, I'll just assume the fixed values of this rotation.
+
+The effect of having the drawer behind the screen is stronger the closer the rotated top left screen's corner is to the drawer and to make it look like the GIF we'll want the intersection points to have fixed heights and find the angle to perform the rotation:
+
+![Intersections](./readme/intersections.png)
+
+Here, **H1** and **H2** are fixed values we can come up with as long as it look similar to the GIF.
+
+**x** is going to be the angle we need to find and the horizontal line of the triangle that's in the image is going half the width of the screen (the drawer will have half the screen also, just by looking at the GIF)
+
+Since in the image we mark a right triangle we know we can apply the formula to find the angle:
+
+$`tan(x) = H1 \over (width \over 2)`$
+
+Which results in
+
+$`x = arctan(H1 \over (width \over 2))`$
+
+However, this will give us the angle from the bottom of the y-axis. To fix this we subtract 90deg.
+
+Once that's done, since the border is rounded, we'll notice that we can still move the screen further to the left.
+
+![Intersections](./readme/horizontal-offset.png)
+
+Since, we rotated a "rectangle" (screen) the angle related to the y-axis is the same to the angle related to the x-axis.
+It means the x marked in the image is the same x we just got before.
+
+**R** here is going to be the border radius of the screen.
+
+Now with this we can get **H2** that will be the horizontal offset to position the screen border perfectly aligned to the middle of the screen
+
+For that we use the formula:
+
+$`sin(x) = H3 \over R`$
+
+Which translates to
+
+$`H3 = sin(x) \over R`$
+
+and that's it, the animations just need to interpolate between the initial and final position
+
+### Nesting navigations
+
+For this I made sure that the header always shows the state of the drawer. 
+
+The Tab Drawer and Stack Drawer are just secondary navigations inside the drawer. This means that every page of the drawer will have many tabs and every tab will have many stacks.
+
+The screens are randomly generated based on a seed, so they'll always be the same unless the seed is changed.
+
+-----------------------
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
