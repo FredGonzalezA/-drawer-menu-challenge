@@ -22,7 +22,7 @@ export default () => {
          ##################___________________
      */
     const rotateDeg =
-      90 - (Math.atan(window.width / (2 * triangleHeight)) / Math.PI) * 180;
+      (Math.atan(window.width / (2 * triangleHeight)) / Math.PI) * 180 - 90;
 
     /*
          #           #####
@@ -67,7 +67,7 @@ export default () => {
         {translateX: -window.width / 2},
         {translateY: -window.height / 2},
         {
-          rotate: interpolate(progress.value, [0, 1], [0, -rotateDeg]) + 'deg',
+          rotate: interpolate(progress.value, [0, 1], [0, rotateDeg]) + 'deg',
         },
         // We need to restore the anchor point to the center
         {translateX: window.width / 2},
