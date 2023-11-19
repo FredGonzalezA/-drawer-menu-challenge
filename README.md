@@ -20,9 +20,9 @@ There are three things here:
 
 ### Rotating the screen
 
-Since, the responsiveness is not totally clear, I'll just assume the fixed values of this rotation.
+Since the responsiveness is not totally clear, I'll just assume the fixed values of this rotation.
 
-The effect of having the drawer behind the screen is stronger the closer the rotated top left screen's corner is to the drawer and to make it look like the GIF we'll want the intersection points to have fixed heights and find the angle to perform the rotation:
+The effect of having the drawer behind the screen is stronger the closer the rotated top left screen's corner is to the drawer and to make it look like the GIF we'll want the intersection points to have fixed heights (between the screen and the top boundary) and find the angle to perform the rotation:
 
 ![Intersections](./readme/intersections.png)
 
@@ -44,12 +44,12 @@ Once that's done, since the border is rounded, we'll notice that we can still mo
 
 ![Intersections](./readme/horizontal-offset.png)
 
-Since, we rotated a "rectangle" (screen) the angle related to the y-axis is the same to the angle related to the x-axis.
+Since we rotated a "rectangle" (screen) the angle related to the y-axis is the same to the angle related to the x-axis.
 It means the x marked in the image is the same x we just got before.
 
 **R** here is going to be the border radius of the screen.
 
-Now with this we can get **H2** that will be the horizontal offset to position the screen border perfectly aligned to the middle of the screen
+Now with this we can get **H3**. That will be the horizontal offset to position the screen border perfectly aligned to the middle of the screen
 
 For that we use the formula:
 
